@@ -43,6 +43,18 @@
   }, 900);
 })();
 
+/* ===== HERO SCROLL FADE ===== */
+(function () {
+  const hero = document.querySelector('.hero');
+  const fade = document.querySelector('.hero-scroll-fade');
+  if (!hero || !fade) return;
+
+  window.addEventListener('scroll', () => {
+    const progress = Math.min(window.scrollY / (hero.offsetHeight * 0.75), 1);
+    fade.style.opacity = progress;
+  }, { passive: true });
+})();
+
 /* ===== BACK TO TOP ===== */
 (function () {
   const btn = document.getElementById('back-to-top');

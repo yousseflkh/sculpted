@@ -212,15 +212,18 @@ em { font-style: italic; color: var(--gold-light); }
 }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
-  background: #363634;
+  background-image: url('../assets/images/Front_Background.png');
+  background-size: cover;
+  background-position: center;
 }
-.hero-bg::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 62% 55%, rgba(200,194,180,0.08) 0%, transparent 58%);
+.hero-scroll-fade {
+  position: absolute; inset: 0; z-index: 1;
+  background: #363634;
+  opacity: 0;
+  pointer-events: none;
 }
 .hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
+  position: absolute; inset: 0; z-index: 2;
   /* fully opaque at top so header merges seamlessly, opens up in the middle */
   background: linear-gradient(to bottom,
     rgba(36,36,34,1.00) 0%,
@@ -231,7 +234,7 @@ em { font-style: italic; color: var(--gold-light); }
     rgba(36,36,34,0.88) 100%);
 }
 .hero-content {
-  position: relative; z-index: 2;
+  position: relative; z-index: 3;
   text-align: center; width: 100%; padding: 0 48px;
 }
 .hero-eyebrow {
@@ -256,7 +259,7 @@ em { font-style: italic; color: var(--gold-light); }
 }
 .scroll-hint {
   position: absolute; bottom: 44px; left: 50%;
-  transform: translateX(-50%); z-index: 2;
+  transform: translateX(-50%); z-index: 3;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
 .scroll-hint span { font-size: 8.5px; letter-spacing: 0.32em; color: rgba(245,244,240,0.45); }
