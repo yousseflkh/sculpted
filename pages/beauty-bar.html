@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beauty Bar — Sculpted Medical Aesthetics</title>
+  <title>Beauty Bar &mdash; Sculpted Medical Aesthetics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
   <style>
     .services-list { padding: 100px 0; background: var(--bg-primary); }
     .service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 100px; }
     .service-block:nth-child(even) .service-block-img { order: -1; }
-    .service-block-img { aspect-ratio: 4/5; overflow: hidden; }
+    .service-block-img { aspect-ratio: 4/5; overflow: hidden; position: relative; outline: 1px solid rgba(200,194,180,0.25); box-shadow: 0 16px 48px rgba(0,0,0,0.4); transition: box-shadow 0.4s ease, outline-color 0.4s ease; }
+    .service-block:hover .service-block-img { outline-color: rgba(200,194,180,0.6); box-shadow: 0 24px 64px rgba(0,0,0,0.55); }
+    .service-block-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; filter: brightness(0.92) saturate(0.88); }
+    .service-block-img::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(36,36,34,0.45) 100%); pointer-events: none; }
+    .service-block:hover .service-block-img img { transform: scale(1.04); filter: brightness(1) saturate(1); }
     .service-block-text { padding: 20px 0; }
     .service-block-text h3 { font-family: var(--font-display); font-size: 2.4rem; color: var(--cream); margin-bottom: 18px; }
     .service-block-text p { font-size: 14px; line-height: 1.85; color: var(--text-muted); margin-bottom: 28px; }
-    .service-price { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: block; }
     @media (max-width: 800px) { .service-block { grid-template-columns: 1fr; } .service-block:nth-child(even) .service-block-img { order: 0; } }
   </style>
 </head>
@@ -24,13 +27,50 @@
 
 <header id="header">
   <div class="header-container">
-    <a href="../index.html" class="logo"><div class="logo-placeholder"><span class="logo-main">SCULPTED</span><span class="logo-sub">MEDICAL AESTHETICS</span></div></a>
+    <a href="../index.html" class="logo">
+      <img src="../assets/images/Sculpted.png" alt="Sculpted" class="logo-img">
+    </a>
     <nav><ul class="nav-list">
-      <li class="nav-item has-dropdown"><a href="injectables.html" class="nav-link">Injectables</a><div class="dropdown"><div class="dropdown-inner"><a href="injectables.html#dermal-filler" class="dropdown-link">Dermal Filler</a><a href="injectables.html#neuromodulators" class="dropdown-link">Neuromodulators</a><a href="injectables.html#biostimulators" class="dropdown-link">Biostimulators</a><a href="injectables.html#deoxycholic-acid" class="dropdown-link">Deoxycholic Acid</a><a href="injectables.html#prp-prf" class="dropdown-link">PRP / PRF</a><a href="injectables.html#lip-enhancement" class="dropdown-link">Lip Enhancement</a></div></div></li>
-      <li class="nav-item has-dropdown"><a href="skin.html" class="nav-link">Skin</a><div class="dropdown"><div class="dropdown-inner"><a href="skin.html#microneedling" class="dropdown-link">Microneedling</a><a href="skin.html#chemical-peels" class="dropdown-link">Chemical Peels</a><a href="skin.html#led-therapy" class="dropdown-link">LED Therapy</a><a href="skin.html#hydrafacial" class="dropdown-link">HydraFacial</a><a href="skin.html#laser" class="dropdown-link">Laser Treatments</a></div></div></li>
-      <li class="nav-item has-dropdown"><a href="beauty-bar.html" class="nav-link">Beauty Bar</a><div class="dropdown"><div class="dropdown-inner"><a href="beauty-bar.html#lash-extensions" class="dropdown-link">Lash Extensions</a><a href="beauty-bar.html#brow-lamination" class="dropdown-link">Brow Lamination</a><a href="beauty-bar.html#lash-lift" class="dropdown-link">Lash Lift &amp; Tint</a><a href="beauty-bar.html#microblading" class="dropdown-link">Microblading</a><a href="beauty-bar.html#waxing" class="dropdown-link">Waxing</a></div></div></li>
-      <li class="nav-item has-dropdown"><a href="massage.html" class="nav-link">Massage</a><div class="dropdown"><div class="dropdown-inner"><a href="massage.html#swedish" class="dropdown-link">Swedish Massage</a><a href="massage.html#deep-tissue" class="dropdown-link">Deep Tissue</a><a href="massage.html#hot-stone" class="dropdown-link">Hot Stone</a><a href="massage.html#prenatal" class="dropdown-link">Prenatal Massage</a><a href="massage.html#lymphatic" class="dropdown-link">Lymphatic Drainage</a></div></div></li>
+      <li class="nav-item has-dropdown">
+        <a href="injectables.html" class="nav-link">Injectables</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="injectables.html#dermal-filler"    class="dropdown-link">Dermal Filler</a>
+          <a href="injectables.html#neuromodulators"  class="dropdown-link">Neuromodulators</a>
+          <a href="injectables.html#biostimulators"   class="dropdown-link">Biostimulators</a>
+          <a href="injectables.html#prp"              class="dropdown-link">PRP</a>
+          <a href="injectables.html#skin-boosters"    class="dropdown-link">Skin Boosters</a>
+          <a href="injectables.html#deoxycholic-acid" class="dropdown-link">Deoxycholic Acid</a>
+          <a href="injectables.html#sclerotherapy"    class="dropdown-link">Sclerotherapy</a>
+        </div></div>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="skin.html" class="nav-link">Skin</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="skin.html#clinical-facials" class="dropdown-link">Clinical Facials</a>
+          <a href="skin.html#chemical-peels"   class="dropdown-link">Chemical Peels</a>
+          <a href="skin.html#microneedling"    class="dropdown-link">Microneedling</a>
+        </div></div>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="beauty-bar.html" class="nav-link">Beauty Bar</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="beauty-bar.html#brows"  class="dropdown-link">Brows</a>
+          <a href="beauty-bar.html#lashes" class="dropdown-link">Lashes</a>
+          <a href="beauty-bar.html#waxing" class="dropdown-link">Body &amp; Facial Waxing</a>
+        </div></div>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="massage.html" class="nav-link">Massage</a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="massage.html#restorative"    class="dropdown-link">Restorative</a>
+          <a href="massage.html#lymphatic"      class="dropdown-link">Lymphatic Drainage</a>
+          <a href="massage.html#prenatal"       class="dropdown-link">Mommy to Be</a>
+          <a href="massage.html#buccal"         class="dropdown-link">Buccal Massage</a>
+          <a href="massage.html#head-in-clouds" class="dropdown-link">Head in the Clouds</a>
+        </div></div>
+      </li>
       <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      <li class="nav-item"><a href="../index.html#shop" class="nav-link">Shop</a></li>
     </ul></nav>
     <a href="https://sculptedmedicalaesthetics.janeapp.com/" target="_blank" rel="noopener" class="btn-book">BOOK AN APPOINTMENT</a>
     <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -41,74 +81,54 @@
   <p class="section-label page-hero-label">Beauty Services</p>
   <h1>BEAUTY <em>BAR</em></h1>
   <div class="page-hero-divider"></div>
-  <p>From lashes to brows, our beauty bar services are crafted to enhance your natural features with precision, artistry, and lasting results.</p>
+  <p>The ultimate destination for your essential aesthetic finishing touches.</p>
 </section>
 
 <section class="services-list">
   <div class="container">
 
-    <div class="service-block" id="lash-extensions" data-animate>
-      <div class="service-block-img grad-rose"></div>
+    <div class="service-block" id="brows" data-animate>
+      <div class="service-block-img"><img src="../assets/images/Brows.jpg" alt="Brows"></div>
       <div class="service-block-text">
-        <p class="section-label">Beauty Bar</p>
-        <h3>Lash Extensions</h3>
-        <span class="service-price">Starting from — Ask for Pricing</span>
-        <p>Classic, hybrid, or volume lash extensions applied individually for a customized look — from natural and wispy to full and dramatic. Wake up every morning looking effortlessly put-together.</p>
-        <a href="contact.html" class="btn-outline-light">BOOK NOW</a>
+        <h3>Brows</h3>
+        <p>Celebrate and elevate your natural brows. We specialize in advanced, non-permanent brow styling &mdash; including premium brow laminations, custom tinting, and architectural shaping and waxing. Discover a fuller, perfectly sculpted frame for your face without the commitment of permanent makeup.</p>
+        <a href="contact.html" class="btn-outline-light">BOOK AN APPOINTMENT</a>
       </div>
     </div>
 
-    <div class="service-block" id="brow-lamination" data-animate>
-      <div class="service-block-img grad-gold"></div>
+    <div class="service-block" id="lashes" data-animate>
+      <div class="service-block-img"><img src="../assets/images/Lashes.png" alt="Lashes"></div>
       <div class="service-block-text">
-        <p class="section-label">Beauty Bar</p>
-        <h3>Brow Lamination</h3>
-        <span class="service-price">Starting from — Ask for Pricing</span>
-        <p>A semi-permanent treatment that restructures brow hairs for a fluffy, brushed-up, defined look. Perfect for sparse, unruly, or asymmetrical brows — results last 6–8 weeks.</p>
-        <a href="contact.html" class="btn-outline-light">BOOK NOW</a>
-      </div>
-    </div>
-
-    <div class="service-block" id="lash-lift" data-animate>
-      <div class="service-block-img grad-warm"></div>
-      <div class="service-block-text">
-        <p class="section-label">Beauty Bar</p>
-        <h3>Lash Lift &amp; Tint</h3>
-        <span class="service-price">Starting from — Ask for Pricing</span>
-        <p>A low-maintenance alternative to extensions. The lift curls your natural lashes from the base, while the tint darkens them for a mascara-free, wide-awake look lasting up to 8 weeks.</p>
-        <a href="contact.html" class="btn-outline-light">BOOK NOW</a>
-      </div>
-    </div>
-
-    <div class="service-block" id="microblading" data-animate>
-      <div class="service-block-img grad-moody"></div>
-      <div class="service-block-text">
-        <p class="section-label">Beauty Bar</p>
-        <h3>Microblading</h3>
-        <span class="service-price">Starting from — Ask for Pricing</span>
-        <p>Semi-permanent eyebrow tattooing using fine, hair-stroke technique to create naturally fuller, perfectly shaped brows. Ideal for filling gaps, redefining shape, or restoring sparse brows.</p>
-        <a href="contact.html" class="btn-outline-light">BOOK NOW</a>
+        <h3>Lashes</h3>
+        <p>Elevate your gaze with our premium lash styling. We specialize in natural lash lifts and high-definition tinting to create an elegant, open-eyed look with zero daily effort. Achieve beautifully dark, curled, and defined lashes without the maintenance or damage of extensions.</p>
+        <a href="contact.html" class="btn-outline-light">BOOK AN APPOINTMENT</a>
       </div>
     </div>
 
     <div class="service-block" id="waxing" data-animate>
-      <div class="service-block-img grad-taupe"></div>
+      <div class="service-block-img"><img src="../assets/images/Waxing.jpg" alt="Waxing"></div>
       <div class="service-block-text">
-        <p class="section-label">Beauty Bar</p>
-        <h3>Waxing</h3>
-        <span class="service-price">Starting from — Ask for Pricing</span>
-        <p>Precise, gentle waxing services for face and body. Our aestheticians use premium wax formulas designed for smooth, clean results with minimal irritation — even for sensitive skin.</p>
-        <a href="contact.html" class="btn-outline-light">BOOK NOW</a>
+        <h3>Body &amp; Facial Waxing</h3>
+        <p>Experience hair removal elevated to a clinical standard. We provide premium facial and body waxing services designed with meticulous attention to detail, ultimate hygiene, and skin comfort. Using high-quality, gentle waxes and advanced techniques, we efficiently remove unwanted hair from the root while protecting the skin&rsquo;s delicate barrier.</p>
+        <a href="contact.html" class="btn-outline-light">BOOK AN APPOINTMENT</a>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
-    <div class="footer-brand"><a href="../index.html" class="footer-logo logo-placeholder"><span class="logo-main">SCULPTED</span><span class="logo-sub">MEDICAL AESTHETICS</span></a><div class="footer-socials"><a href="https://www.facebook.com/profile.php?id=100095470361294" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.instagram.com/sculptedmedicalaesthetics/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.tiktok.com/@sculptedmedaesthetics?lang=en" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 1 0 5.54 6.29V8.69a8.19 8.19 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a><a href="mailto:scupltedmedaesthetics@gmail.com" class="social-icon" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></a>
-        </div><a href="https://sculptedmedicalaesthetics.janeapp.com/" target="_blank" rel="noopener" class="btn-book-footer">BOOK AN APPOINTMENT</a>
+    <div class="footer-brand">
+      <a href="../index.html" class="footer-logo"><img src="../assets/images/Sculpted.png" alt="Sculpted" class="footer-logo-img"></a>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=100095470361294" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/sculptedmedicalaesthetics/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.tiktok.com/@sculptedmedaesthetics?lang=en" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 1 0 5.54 6.29V8.69a8.19 8.19 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+        <a href="mailto:scupltedmedaesthetics@gmail.com" class="social-icon" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></a>
+      </div>
+      <a href="https://sculptedmedicalaesthetics.janeapp.com/" target="_blank" rel="noopener" class="btn-book-footer">BOOK AN APPOINTMENT</a>
       <a href="https://www.google.com/maps?cid=10813723003576618194" target="_blank" rel="noopener" class="footer-review-link">
         <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -118,24 +138,16 @@
         <span>5.0 on Google</span>
       </a>
     </div>
-    <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="#">About</a></li><li><a href="#">Shop</a></li><li><a href="#">Gift Cards</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#shop">Shop</a></li><li><a href="https://app.squareup.com/gift/MLVSPW7R7DYFF/order" target="_blank" rel="noopener">Gift Cards</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-links"><h4>Services</h4><ul><li><a href="injectables.html">Injectables</a></li><li><a href="skin.html">Skin</a></li><li><a href="beauty-bar.html">Beauty Bar</a></li><li><a href="massage.html">Massage</a></li></ul></div>
     <div class="footer-contact">
-      <div class="footer-contact-block">
-        <h4>Get In Touch</h4>
-        <a href="tel:9025219278">Call or Text (902) 521-9278</a>
-        <a href="mailto:scupltedmedaesthetics@gmail.com">Email Us</a>
-      </div>
-      <div class="footer-contact-block">
-        <h4>Location</h4>
-        <p>38 Ella Lane, Bedford<br>Suite 202 (Second Floor)<br>Bedford, NS &nbsp; B4B 2M8</p>
-      </div>
+      <div class="footer-contact-block"><h4>Get In Touch</h4><a href="tel:9024484399">Call or Text (902) 448-4399</a><a href="mailto:scupltedmedaesthetics@gmail.com">Email Us</a></div>
+      <div class="footer-contact-block"><h4>Location</h4><p>38 Ella Lane, Bedford<br>Suite 202 (Second Floor)<br>Bedford, NS &nbsp; B4B 2M8</p></div>
     </div>
-    <div class="footer-map"><iframe src="https://maps.google.com/maps?q=Sculpted+Medical+Aesthetics,38+Ella+Ln,Bedford,NS+B4B+2M8&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sculpted Medical Aesthetics location"></iframe></div></div>
+    <div class="footer-map"><iframe src="https://maps.google.com/maps?q=Sculpted+Medical+Aesthetics,38+Ella+Ln,Bedford,NS+B4B+2M8&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sculpted Medical Aesthetics location"></iframe></div>
   </div>
   <div class="footer-bottom"><p>Copyright 2025 &copy; Sculpted Medical Aesthetics. All Rights Reserved.</p></div>
 </footer>
-
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
@@ -147,56 +159,47 @@
         <a href="injectables.html#dermal-filler">Dermal Filler</a>
         <a href="injectables.html#neuromodulators">Neuromodulators</a>
         <a href="injectables.html#biostimulators">Biostimulators</a>
+        <a href="injectables.html#prp">PRP</a>
+        <a href="injectables.html#skin-boosters">Skin Boosters</a>
         <a href="injectables.html#deoxycholic-acid">Deoxycholic Acid</a>
-        <a href="injectables.html#prp-prf">PRP / PRF</a>
-        <a href="injectables.html#lip-enhancement">Lip Enhancement</a>
       </div>
     </li>
     <li class="mobile-nav-item">
       <a href="skin.html" class="mobile-nav-link">Skin</a>
       <div class="mobile-nav-sub">
-        <a href="skin.html#microneedling">Microneedling</a>
+        <a href="skin.html#clinical-facials">Clinical Facials</a>
         <a href="skin.html#chemical-peels">Chemical Peels</a>
-        <a href="skin.html#led-therapy">LED Therapy</a>
-        <a href="skin.html#hydrafacial">HydraFacial</a>
-        <a href="skin.html#laser">Laser Treatments</a>
+        <a href="skin.html#microneedling">Microneedling</a>
       </div>
     </li>
     <li class="mobile-nav-item">
       <a href="beauty-bar.html" class="mobile-nav-link">Beauty Bar</a>
       <div class="mobile-nav-sub">
-        <a href="beauty-bar.html#lash-extensions">Lash Extensions</a>
-        <a href="beauty-bar.html#brow-lamination">Brow Lamination</a>
-        <a href="beauty-bar.html#lash-lift">Lash Lift &amp; Tint</a>
-        <a href="beauty-bar.html#microblading">Microblading</a>
-        <a href="beauty-bar.html#waxing">Waxing</a>
+        <a href="beauty-bar.html#brows">Brows</a>
+        <a href="beauty-bar.html#lashes">Lashes</a>
+        <a href="beauty-bar.html#waxing">Body &amp; Facial Waxing</a>
       </div>
     </li>
     <li class="mobile-nav-item">
       <a href="massage.html" class="mobile-nav-link">Massage</a>
       <div class="mobile-nav-sub">
-        <a href="massage.html#swedish">Swedish Massage</a>
-        <a href="massage.html#deep-tissue">Deep Tissue</a>
-        <a href="massage.html#hot-stone">Hot Stone</a>
-        <a href="massage.html#prenatal">Prenatal Massage</a>
+        <a href="massage.html#restorative">Restorative</a>
         <a href="massage.html#lymphatic">Lymphatic Drainage</a>
+        <a href="massage.html#prenatal">Mommy to Be</a>
+        <a href="massage.html#buccal">Buccal Massage</a>
+        <a href="massage.html#head-in-clouds">Head in the Clouds</a>
       </div>
     </li>
-    <li class="mobile-nav-item">
-      <a href="contact.html" class="mobile-nav-link">Contact</a>
-    </li>
+    <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    <li class="mobile-nav-item"><a href="../index.html#shop" class="mobile-nav-link">Shop</a></li>
   </ul>
   <div class="mobile-nav-divider"></div>
   <div class="mobile-nav-bottom">
     <a href="https://sculptedmedicalaesthetics.janeapp.com/" target="_blank" rel="noopener">BOOK AN APPOINTMENT</a>
   </div>
 </div>
-<!-- BACK TO TOP -->
-<button id="back-to-top" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-<!-- FLOATING BOOK (mobile) -->
-<a id="float-book" href="https://sculptedmedicalaesthetics.janeapp.com/" target="_blank" rel="noopener">BOOK NOW</a>
+<button id="back-to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 15l-6-6-6 6"/></svg></button>
+<a id="float-book" href="https://sculptedmedicalaesthetics.janeapp.com/" target="_blank" rel="noopener">BOOK AN APPOINTMENT</a>
 <script src="../js/main.js"></script>
 </body>
 </html>
